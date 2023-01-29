@@ -1,0 +1,23 @@
+#form {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  height: 90vh;
+  width: 500px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}

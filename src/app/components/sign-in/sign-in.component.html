@@ -1,0 +1,29 @@
+<form id='form'>
+  <h2>Sign in</h2>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput [formControl]="formControl" >
+    <mat-error *ngIf="formControl.hasError('required')">
+      Username is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="formControl">
+    <mat-error *ngIf="formControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-flat-button
+            type="button"
+            color="primary"
+            routerLink="/sign-up"
+    >Sign up</button>
+    <button mat-flat-button
+            type="button"
+            color="primary"
+            (click)="onSubmit()"
+    >Sign in</button>
+  </div>
+</form>

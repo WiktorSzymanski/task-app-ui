@@ -16,6 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { TodayViewComponent } from './components/today-view/today-view.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -36,7 +37,11 @@ import { TodayViewComponent } from './components/today-view/today-view.component
     MatCheckboxModule,
     MatIconModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    RouterModule.forRoot([
+      {path: 'tasks', component: TaskViewComponent},
+      {path: 'today', component: TodayViewComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

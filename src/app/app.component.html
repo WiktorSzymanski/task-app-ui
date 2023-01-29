@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <div class="menu">
-    <button mat-button>
+    <button mat-button routerLink="tasks">
       Tasks
     </button>
-    <button mat-button>
+    <button mat-button routerLink="today">
       Today
     </button>
     <button mat-button>
@@ -16,6 +16,5 @@
 </mat-toolbar>
 
 <div class="content">
-  <app-task-view></app-task-view>
-  <app-today-view></app-today-view>
+  <router-outlet></router-outlet>
 </div>

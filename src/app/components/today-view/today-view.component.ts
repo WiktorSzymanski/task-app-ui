@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {List} from "../task-list/task-list.component";
 
 const EXAMPLE_LIST = {
@@ -8,11 +8,11 @@ const EXAMPLE_LIST = {
   description: 'description',
 }
 @Component({
-  selector: 'app-task-view',
-  templateUrl: './task-view.component.html',
-  styleUrls: ['./task-view.component.css']
+  selector: 'app-today-view',
+  templateUrl: './today-view.component.html',
+  styleUrls: ['./today-view.component.css']
 })
-export class TaskViewComponent implements OnInit{
+export class TodayViewComponent {
   allLists!: List[];
 
   ngOnInit() {

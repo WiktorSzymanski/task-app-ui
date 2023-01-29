@@ -1,0 +1,24 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-checkbox [checked]="task!.done" (click)="checkTask()" (click)="$event.stopPropagation()" ></mat-checkbox>
+    <p id="task-name">{{task?.name}}</p>
+  </mat-expansion-panel-header>
+  <mat-panel-description>
+    <p>
+      Description:
+      {{task?.description}}
+    </p>
+    <p>
+      Created:
+      {{task?.created}}
+    </p>
+    <p>
+      Due to:
+      {{task?.dueTo}}
+    </p>
+    <p>
+      Done:
+      {{task?.done}}
+    </p>
+  </mat-panel-description>
+</mat-expansion-panel>

@@ -1,0 +1,17 @@
+mat-panel-description {
+  flex-direction: column;
+  box-shadow: none;
+}
+
+.mat-expansion-panel{
+  box-shadow: none !important;
+}
+
+#task-name {
+  margin: 14px 0px;
+}
+
+mat-panel-description {
+  width: 55vw;
+}
+

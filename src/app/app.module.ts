@@ -4,21 +4,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskViewComponent } from './components/task-view/task-view.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTreeModule} from '@angular/material/tree';
-import { TaskListComponent } from './components/task-list/task-list.component';
-import { MatCheckboxModule} from "@angular/material/checkbox";
-import { MatIconModule} from "@angular/material/icon";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatExpansionModule} from "@angular/material/expansion";
+import { TodayViewComponent } from './components/today-view/today-view.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskViewComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskComponent,
+    TodayViewComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatTreeModule,
     MatCheckboxModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

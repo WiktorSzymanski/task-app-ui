@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
+import {Router} from '@angular/router';
 
 import {AuthService} from "../../services/auth.service";
 import {TokenStorageService} from "../../services/token-storage.service";
@@ -20,7 +21,7 @@ export class SignInComponent implements OnInit{
   username?: string;
 
   formControl = new FormControl('', [Validators.required])
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) {
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) {
 
   }
 
@@ -40,7 +41,7 @@ export class SignInComponent implements OnInit{
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 
-        // this.reloadPage();
+        this.router.navigate(['/today']).then(this.reloadPage);
       },
       err => {
         this.errorMessage = err.error.message;

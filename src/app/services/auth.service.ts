@@ -17,7 +17,9 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    console.log("in Login")
+    console.log("in Login");
+    console.log("Body:");
+    console.log({username, password});
     return this.httpClient.post(AUTH_URI + 'login', {
       username,
       password

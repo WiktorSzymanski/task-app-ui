@@ -10,8 +10,16 @@
       Calendar
     </button>
   </div>
-  <div class="user-box" routerLink="sign-in">
+  <div class="user-box"
+       *ngIf="isLoggedIn"
+  >
     {{username}}
+  </div>
+  <div class="user-box"
+       *ngIf="!isLoggedIn"
+       routerLink="sign-in"
+  >
+    sign in
   </div>
 </mat-toolbar>
 

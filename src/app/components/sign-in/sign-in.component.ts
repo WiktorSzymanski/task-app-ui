@@ -15,7 +15,6 @@ export class SignInComponent implements OnInit{
     username: null,
     password: null
   };
-  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   username?: string;
@@ -26,9 +25,8 @@ export class SignInComponent implements OnInit{
   }
 
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.username = this.tokenStorage.getUser().username;
+    if (!!this.tokenStorage.getToken()) {
+      this.router.navigate(['/today']);
     }
   }
 
@@ -41,7 +39,7 @@ export class SignInComponent implements OnInit{
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
 
-        this.router.navigate(['/today']).then(this.reloadPage);
+        this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;

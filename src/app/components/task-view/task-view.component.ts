@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {List} from "../task-list/task-list.component";
+import {TaskListService} from "../../services/task-list.service";
+import {TaskService} from "../../services/task.service";
 
 const EXAMPLE_LIST = {
   id: 'id',
@@ -15,11 +17,19 @@ const EXAMPLE_LIST = {
 export class TaskViewComponent implements OnInit{
   allLists!: List[];
 
+
+  constructor(private taskListService: TaskListService, private taskService: TaskService) {
+  }
+
   ngOnInit() {
-    this.allLists = [
-      EXAMPLE_LIST,
-      EXAMPLE_LIST,
-      EXAMPLE_LIST
-    ]
+    this.taskListService.getAllTasksLists().subscribe(res => {
+      console.log(res);
+    })
+    //
+    // this.allLists = [
+    //   EXAMPLE_LIST,
+    //   EXAMPLE_LIST,
+    //   EXAMPLE_LIST
+    // ]
   }
 }

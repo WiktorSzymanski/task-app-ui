@@ -35,14 +35,11 @@ export class SignUpComponent implements OnInit{
     console.log("Form:  ")
     console.log(this.form);
 
-    this.authService.register(email, username, password).subscribe(
+    this.authService.register(username, email, password).subscribe(
       data => {
         console.log(data);
-        this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
-
-        // this.router.navigate(['/sign-in']);
-        // this.reloadPage();
+        this.router.navigate(['/sign-in']);
+        this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;

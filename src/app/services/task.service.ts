@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Task } from '../components/task/task.component';
 
-const API_URI = 'http://localhost:8080/api/tasks-list/';
+const API_URI = 'http://localhost:8080/api/tasks-list';
 
 @Injectable({
   providedIn: 'root'

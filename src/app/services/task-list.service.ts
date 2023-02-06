@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {List} from "../components/task-list/task-list.component";
 import {TokenStorageService} from "./token-storage.service";
 
-const API_URI = 'http://localhost:8080/api/tasks-list/';
+const API_URI = 'http://localhost:8080/api/tasks-list';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskListService {
 
-  constructor(private httpClient: HttpClient, private tokenStorage: TokenStorageService) { }
+  constructor(private httpClient: HttpClient, private tokenStorage: TokenStorageService) {
+  }
 
   getAllTasksLists() {
     return this.httpClient.get(API_URI,

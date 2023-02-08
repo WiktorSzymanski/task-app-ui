@@ -1,8 +1,22 @@
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <p id="list-name">List</p>
-  </mat-expansion-panel-header>
-  <mat-panel-description *ngFor="let task of allTasks">
-    <app-task></app-task>
-  </mat-panel-description>
-</mat-expansion-panel>
+<div id="list-container">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <div id="info">
+        <span id="list-name">{{this.list.name}}</span>
+
+        <span class="desc" *ngIf="this.list.description">{{this.list.description}}</span>
+        <span class="desc" *ngIf="!this.list.description">No description</span>
+      </div>
+    </mat-expansion-panel-header>
+    <mat-panel-description *ngFor="let task of allTasks">
+      <app-task [task]="task"></app-task>
+    </mat-panel-description>
+    <p *ngIf="this.allTasks?.length == 0">List is empty ;-;</p>
+  </mat-expansion-panel>
+  <button mat-mini-fab color="primary" (click)="openListPopup()">
+    <mat-icon>create</mat-icon>
+  </button>
+  <button mat-mini-fab color="warn" (click)="deleteList()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

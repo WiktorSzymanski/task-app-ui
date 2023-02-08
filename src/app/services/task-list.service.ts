@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {List} from "../components/task-list/task-list.component";
 import {TokenStorageService} from "./token-storage.service";
 
-const API_URI = 'http://localhost:8080/api/tasks-list/';
+const API_URI = 'http://localhost:8080/api/tasks-list';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,10 @@ export class TaskListService {
   }
 
   deleteTaskList(listId: string) {
-    return this.httpClient.delete(API_URI + '/' + listId, {responseType: 'json'});
+    console.log("DELETE TASK LIST WITH ID :" + listId)
+    return this.httpClient.delete(API_URI + '/' + listId,
+      {
+        headers: {'Authorization' : 'Bearer ' + this.tokenStorage.getToken()},
+      });
   }
 }

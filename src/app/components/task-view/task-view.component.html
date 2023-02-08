@@ -1,6 +1,12 @@
 <div class="list">
-  <h2>All tasks</h2>
+  <div id="head">
+    <span id="title">All tasks</span>
+    <button mat-mini-fab color="primary" (click)="openListPopup()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
   <mat-accordion *ngFor="let list of allLists">
-    <app-task-list></app-task-list>
+    <app-task-list [list]="list"></app-task-list>
   </mat-accordion>
 </div>

@@ -1,22 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Task } from '../task/task.component';
+import {TaskService} from "../../services/task.service";
+import {TaskListService} from "../../services/task-list.service";
+import {MatDialog} from "@angular/material/dialog";
+import {TaskListPopUpComponent} from "../task-list-pop-up/task-list-pop-up.component";
 
-const EXAMPLE_TASK = {
-  id: 'id',
-  name: 'name',
-  created: new Date(),
-  listId: 'listId',
-  dueTo: new Date(),
-  description: 'description',
-  done: false
-}
-
-const EXAMPLE_LIST = {
-  id: 'id',
-  name: 'name',
-  userId: 'userId',
-  description: 'description',
-}
 
 @Component({
   selector: 'app-task-list',
@@ -24,15 +12,28 @@ const EXAMPLE_LIST = {
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit{
-  list!: List;
-  allTasks!: Task[];
+  @Input() list!: List;
+  allTasks?: Task[];
+
+  constructor(private taskListService: TaskListService, private taskService: TaskService, private dialogRef: MatDialog) {
+  }
   ngOnInit() {
-    this.list = new List(EXAMPLE_LIST.id, EXAMPLE_LIST.name, EXAMPLE_LIST.userId, EXAMPLE_LIST.description)
-    this.allTasks = [
-      EXAMPLE_TASK,
-      EXAMPLE_TASK,
-      EXAMPLE_TASK
-    ]
+    this.taskService.getAllTasks(this.list.id).subscribe(res => {
+      this.allTasks = <Task[]> res;
+      console.log(res);
+    })
+  }
+
+  deleteList() {
+    console.log("Pressed button to delete list with id: " + this.list.id)
+    this.taskListService.deleteTaskList(this.list.id).subscribe(res => {});
+    window.location.reload();
+  }
+
+  openListPopup() {
+    this.dialogRef.open(TaskListPopUpComponent, {
+      data: this.list
+    });
   }
 }
 

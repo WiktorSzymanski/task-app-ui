@@ -13,13 +13,13 @@ const EXAMPLE_LIST = {
   styleUrls: ['./today-view.component.css']
 })
 export class TodayViewComponent {
-  allLists!: List[];
+  allLists?: List[];
 
   ngOnInit() {
-    this.allLists = [
-      EXAMPLE_LIST,
-      EXAMPLE_LIST,
-      EXAMPLE_LIST
-    ]
+    // this.allLists = [
+    //   // EXAMPLE_LIST,
+    //   // EXAMPLE_LIST,
+    //   // EXAMPLE_LIST
+    // ]
   }
 }

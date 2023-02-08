@@ -19,10 +19,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {RouterModule} from "@angular/router";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {MatDialogModule} from "@angular/material/dialog";
 
 import { authInterceptorProviders } from "./helpers/auth.interceptor";
+import { TaskListPopUpComponent } from './components/task-list-pop-up/task-list-pop-up.component';
 
 
 
@@ -34,7 +36,8 @@ import { authInterceptorProviders } from "./helpers/auth.interceptor";
     TaskComponent,
     TodayViewComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    TaskListPopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { authInterceptorProviders } from "./helpers/auth.interceptor";
     MatButtonModule,
     MatTreeModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
     MatExpansionModule,
@@ -54,7 +58,8 @@ import { authInterceptorProviders } from "./helpers/auth.interceptor";
     ]),
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

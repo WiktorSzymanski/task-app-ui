@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {List} from "../task-list/task-list.component";
 import {TaskListService} from "../../services/task-list.service";
-import {TaskService} from "../../services/task.service";
+import {MatDialog} from "@angular/material/dialog";
+import {TaskListPopUpComponent} from "../task-list-pop-up/task-list-pop-up.component";
 
 const EXAMPLE_LIST = {
   id: 'id',
@@ -18,18 +19,18 @@ export class TaskViewComponent implements OnInit{
   allLists!: List[];
 
 
-  constructor(private taskListService: TaskListService, private taskService: TaskService) {
-  }
+  constructor(private taskListService: TaskListService, private dialogRef: MatDialog) {}
 
   ngOnInit() {
     this.taskListService.getAllTasksLists().subscribe(res => {
+      this.allLists = <List[]> res;
       console.log(res);
     })
-    //
-    // this.allLists = [
-    //   EXAMPLE_LIST,
-    //   EXAMPLE_LIST,
-    //   EXAMPLE_LIST
-    // ]
+  }
+
+  openListPopup() {
+    this.dialogRef.open(TaskListPopUpComponent, {
+      data: null
+    });
   }
 }

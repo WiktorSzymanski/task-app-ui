@@ -29,7 +29,7 @@ export class TaskService {
   }
 
   addTask(listId: string, task: Task) {
-    return this.httpClient.post(API_URI + '/' + listId, task,
+    return this.httpClient.post(API_URI + '/' + listId + '/tasks', task,
       {
         headers: {'Authorization' : 'Bearer ' + this.tokenStorage.getToken()},
         responseType: 'json'
@@ -37,7 +37,7 @@ export class TaskService {
   }
 
   updateTask(listId: string, task: Task) {
-    return this.httpClient.patch(API_URI + '/' + listId, task,
+    return this.httpClient.patch(API_URI + '/' + listId + '/tasks/' + task.id, task,
       {
         headers: {'Authorization' : 'Bearer ' + this.tokenStorage.getToken()},
         responseType: 'json'
@@ -45,7 +45,7 @@ export class TaskService {
   }
 
   deleteTask(listId: string, id: string) {
-    return this.httpClient.delete(API_URI + '/' + listId + '/' + id,
+    return this.httpClient.delete(API_URI + '/' + listId + '/tasks/' + id,
       {
         headers: {'Authorization' : 'Bearer ' + this.tokenStorage.getToken()},
         responseType: 'json'

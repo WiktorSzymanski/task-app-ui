@@ -6,6 +6,10 @@
   width: 20vw;
 }
 
+#bod {
+  background: var(--background);
+  color: var(--main-text);
+}
 
 .mat-toolbar {
   display: flex;

@@ -1,28 +1,31 @@
-<mat-toolbar color="primary">
-  <div class="menu">
-    <button mat-button routerLink="tasks">
-      Tasks
-    </button>
-    <button mat-button routerLink="today">
-      Today
-    </button>
-    <button mat-button>
-      Calendar
-    </button>
-  </div>
-  <div class="user-box"
-       *ngIf="isLoggedIn"
-  >
-    {{username}}
-  </div>
-  <div class="user-box"
-       *ngIf="!isLoggedIn"
-       routerLink="sign-in"
-  >
-    sign in
-  </div>
-</mat-toolbar>
+<div id="bod">
+  <mat-toolbar color="primary">
+    <div class="menu">
+      <button mat-button routerLink="tasks" *ngIf="isLoggedIn">
+        Tasks
+      </button>
+      <button mat-button routerLink="today" *ngIf="isLoggedIn">
+        Today
+      </button>
+      <button mat-button *ngIf="isLoggedIn">
+        Calendar
+      </button>
+    </div>
+    <div class="user-box"
+         *ngIf="isLoggedIn"
+         (click)="openUserPopup()"
+    >
+      {{username}}
+    </div>
+    <div class="user-box"
+         *ngIf="!isLoggedIn"
+         routerLink="sign-in"
+    >
+      sign in
+    </div>
+  </mat-toolbar>
 
-<div class="content">
-  <router-outlet></router-outlet>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

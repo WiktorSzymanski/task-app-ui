@@ -1,5 +1,8 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from "@angular/material/expansion";
+import {TaskPopUpComponent} from "../task-pop-up/task-pop-up.component";
+import {MatDialog} from "@angular/material/dialog";
+import {TaskService} from "../../services/task.service";
 
 
 const EXAMPLE_TASK = {
@@ -21,6 +24,9 @@ export class TaskComponent implements OnInit {
   @ViewChild(MatAccordion) accordion?: MatAccordion;
   @Input() task!: Task;
 
+  constructor(private dialogRef: MatDialog, private taskService: TaskService) {
+  }
+
   ngOnInit() {
     // this.task = new Task(
     //   EXAMPLE_TASK.id,
@@ -35,6 +41,20 @@ export class TaskComponent implements OnInit {
 
   checkTask() {
     this.task!.done = !this.task!.done;
+    this.taskService.updateTask(this.task.listId, this.task).subscribe(res => {})
+  }
+
+  deleteTask() {
+    console.log("Pressed button to delete task with id: " + this.task.id)
+    this.taskService.deleteTask(this.task.listId, this.task.id).subscribe(res => {
+      window.location.reload();
+    });
+  }
+
+  openTaskPopup() {
+    this.dialogRef.open(TaskPopUpComponent, {
+      data: this.task
+    });
   }
 }
 

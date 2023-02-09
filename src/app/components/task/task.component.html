@@ -4,21 +4,25 @@
     <p id="task-name">{{task.name}}</p>
   </mat-expansion-panel-header>
   <mat-panel-description>
-    <p>
+    <p *ngIf="task.description">
       Description:
       {{task.description}}
     </p>
     <p>
       Created:
-      {{task.created}}
+      {{task.created | date:'longDate'}}
     </p>
-    <p>
+    <p *ngIf="task.dueTo">
       Due to:
-      {{task.dueTo}}
+      {{task.dueTo | date:'longDate'}}
     </p>
-    <p>
-      Done:
-      {{task.done}}
-    </p>
+    <div id="buttons">
+      <button mat-mini-fab color="primary" (click)="openTaskPopup()">
+        <mat-icon>create</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" (click)="deleteTask()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </mat-panel-description>
 </mat-expansion-panel>

@@ -15,3 +15,8 @@ mat-panel-description {
   width: 50vw;
 }
 
+#buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}

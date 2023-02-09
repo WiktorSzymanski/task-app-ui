@@ -25,6 +25,11 @@ import {MatDialogModule} from "@angular/material/dialog";
 
 import { authInterceptorProviders } from "./helpers/auth.interceptor";
 import { TaskListPopUpComponent } from './components/task-list-pop-up/task-list-pop-up.component';
+import {TaskPopUpComponent} from "./components/task-pop-up/task-pop-up.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { UserPupUpComponent } from './components/user-pup-up/user-pup-up.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 
@@ -37,30 +42,35 @@ import { TaskListPopUpComponent } from './components/task-list-pop-up/task-list-
     TodayViewComponent,
     SignInComponent,
     SignUpComponent,
-    TaskListPopUpComponent
+    TaskListPopUpComponent,
+    TaskPopUpComponent,
+    UserPupUpComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTreeModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatExpansionModule,
-    RouterModule.forRoot([
-      {path: 'tasks', component: TaskViewComponent},
-      {path: 'today', component: TodayViewComponent},
-      {path: 'sign-in', component: SignInComponent},
-      {path: 'sign-up', component: SignUpComponent}
-    ]),
-    MatInputModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatTreeModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatExpansionModule,
+        RouterModule.forRoot([
+            {path: 'tasks', component: TaskViewComponent},
+            {path: 'today', component: TodayViewComponent},
+            {path: 'sign-in', component: SignInComponent},
+            {path: 'sign-up', component: SignUpComponent}
+        ]),
+        MatInputModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSlideToggleModule
+    ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

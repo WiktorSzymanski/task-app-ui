@@ -7,7 +7,7 @@ import {TaskListService} from "../../services/task-list.service";
 @Component({
   selector: 'app-task-list-pop-up',
   templateUrl: './task-list-pop-up.component.html',
-  styleUrls: ['./task-list-pop-up.component.css']
+  styleUrls: ['./task-list-pop-up.component.scss']
 })
 export class TaskListPopUpComponent implements OnInit{
 

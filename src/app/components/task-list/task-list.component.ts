@@ -10,7 +10,7 @@ import {TaskPopUpComponent} from "../task-pop-up/task-pop-up.component";
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit{
   @Input() list!: List;

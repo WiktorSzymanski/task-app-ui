@@ -10,7 +10,7 @@ const EXAMPLE_LIST = {
 @Component({
   selector: 'app-today-view',
   templateUrl: './today-view.component.html',
-  styleUrls: ['./today-view.component.css']
+  styleUrls: ['./today-view.component.scss']
 })
 export class TodayViewComponent {
   allLists?: List[];

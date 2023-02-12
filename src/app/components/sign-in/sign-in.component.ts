@@ -8,7 +8,7 @@ import {TokenStorageService} from "../../services/token-storage.service";
 @Component({
   selector: 'app-login',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit{
   form: any = {

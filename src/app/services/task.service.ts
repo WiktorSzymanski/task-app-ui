@@ -20,6 +20,14 @@ export class TaskService {
       });
   }
 
+  getTodayTasks() {
+    return this.httpClient.get(API_URI + '/today',
+      {
+        headers: {'Authorization' : 'Bearer ' + this.tokenStorage.getToken()},
+        responseType: 'json'
+      });
+  }
+
   getTaskById(listId: string, id: string) {
     return this.httpClient.get(API_URI + '/' + listId + '/tasks' + id,
       {

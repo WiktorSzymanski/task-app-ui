@@ -3,10 +3,8 @@ import {TokenStorageService} from "./services/token-storage.service";
 import {MatDialog} from "@angular/material/dialog";
 import {UserPupUpComponent} from "./components/user-pup-up/user-pup-up.component";
 import {Router} from "@angular/router";
-import {FormControl} from "@angular/forms";
 import {OverlayContainer} from "@angular/cdk/overlay";
 import {SettingsService} from "./services/settings.service";
-import {startWith} from "rxjs";
 
 @Component({
   selector: 'app-root',

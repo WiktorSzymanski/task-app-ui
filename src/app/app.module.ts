@@ -30,6 +30,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { UserPupUpComponent } from './components/user-pup-up/user-pup-up.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { FilesComponent } from './components/file/files.component';
 
 
 
@@ -44,7 +45,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     SignUpComponent,
     TaskListPopUpComponent,
     TaskPopUpComponent,
-    UserPupUpComponent
+    UserPupUpComponent,
+    FilesComponent
   ],
     imports: [
         BrowserModule,
@@ -58,10 +60,11 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         MatFormFieldModule,
         MatExpansionModule,
         RouterModule.forRoot([
-            {path: 'tasks', component: TaskViewComponent},
-            {path: 'today', component: TodayViewComponent},
-            {path: 'sign-in', component: SignInComponent},
-            {path: 'sign-up', component: SignUpComponent}
+          {path: 'tasks', component: TaskViewComponent},
+          {path: 'today', component: TodayViewComponent},
+          {path: 'files', component: FilesComponent},
+          {path: 'sign-in', component: SignInComponent},
+          {path: 'sign-up', component: SignUpComponent},
         ]),
         MatInputModule,
         ReactiveFormsModule,

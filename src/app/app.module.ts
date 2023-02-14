@@ -26,6 +26,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { authInterceptorProviders } from "./helpers/auth.interceptor";
 import { TaskListPopUpComponent } from './components/task-list-pop-up/task-list-pop-up.component';
 import {TaskPopUpComponent} from "./components/task-pop-up/task-pop-up.component";
+import {FilePopUpComponent} from "./components/file-pop-up/file-pop-up.component";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { UserPupUpComponent } from './components/user-pup-up/user-pup-up.component';
@@ -45,8 +46,9 @@ import { FilesComponent } from './components/file/files.component';
     SignUpComponent,
     TaskListPopUpComponent,
     TaskPopUpComponent,
+    FilePopUpComponent,
     UserPupUpComponent,
-    FilesComponent
+    FilesComponent,
   ],
     imports: [
         BrowserModule,

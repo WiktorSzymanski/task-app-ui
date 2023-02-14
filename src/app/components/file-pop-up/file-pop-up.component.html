@@ -1,0 +1,18 @@
+<form id='task-form'>
+  <span>Choose a file:</span>
+
+  <input type="file" (change)="handleFileInput($event)">
+
+
+  <div class="buttons">
+    <button mat-flat-button mat-dialog-close
+            type="button"
+            color="primary"
+    >Cancel</button>
+    <button mat-flat-button
+            type="button"
+            color="primary"
+            (click)="addData()"
+    >Save</button>
+  </div>
+</form>

@@ -5,5 +5,5 @@
   <mat-accordion *ngFor="let task of todayTasks">
     <app-task [task]="task"></app-task>
   </mat-accordion>
-  <p *ngIf="this.todayTasks?.length == 0">No tasks for today ;-;</p>
+  <p id="empty" *ngIf="this.todayTasks?.length == 0">No tasks for today ;-;</p>
 </div>

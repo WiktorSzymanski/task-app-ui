@@ -9,4 +9,9 @@
   <mat-accordion *ngFor="let list of allLists">
     <app-task-list [list]="list"></app-task-list>
   </mat-accordion>
+  <p id="empty" *ngIf="this.allLists?.length == 0">
+    You don't have any tasks :<
+    <br><br>
+    But you can add some :D
+  </p>
 </div>

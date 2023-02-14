@@ -5,16 +5,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {TaskService} from "../../services/task.service";
 
 
-const EXAMPLE_TASK = {
-  id: 'id',
-  name: 'name',
-  created: new Date(),
-  listId: 'listId',
-  dueTo: new Date(),
-  description: 'description',
-  done: false
-}
-
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',

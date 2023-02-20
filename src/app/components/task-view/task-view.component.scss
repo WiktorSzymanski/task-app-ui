@@ -1,0 +1,23 @@
+.list {
+  padding: 9% 9% 9% 9%;
+}
+
+#files {
+  display: flex;
+  flex-direction: column;
+}
+
+#title {
+  font-size: 30px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+#empty {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+#head {
+  padding-bottom: 10px;
+}

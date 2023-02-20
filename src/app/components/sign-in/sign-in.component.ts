@@ -5,17 +5,17 @@ import {Router} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
 import {TokenStorageService} from "../../services/token-storage.service";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit{
   form: any = {
     username: null,
     password: null
   };
-  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   username?: string;
@@ -26,9 +26,8 @@ export class SignInComponent implements OnInit{
   }
 
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.username = this.tokenStorage.getUser().username;
+    if (!!this.tokenStorage.getToken()) {
+      this.router.navigate(['/today']);
     }
   }
 
@@ -36,15 +35,17 @@ export class SignInComponent implements OnInit{
     const { username, password } = this.form;
 
     this.authService.login(username, password).subscribe(
-      data => {
-        console.log(data);
-        this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
+      res => {
+        console.log(res);
+        this.tokenStorage.saveToken(res.token);
+        this.tokenStorage.saveUser(res);
 
-        this.router.navigate(['/today']).then(this.reloadPage);
+        this.reloadPage();
       },
       err => {
-        this.errorMessage = err.error.message;
+        console.log(err)
+        this.errorMessage = err.error;
+        console.log(this.errorMessage)
         this.isLoginFailed = true;
       }
     )

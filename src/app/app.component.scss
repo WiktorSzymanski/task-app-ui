@@ -6,7 +6,6 @@
   width: 20vw;
 }
 
-
 .mat-toolbar {
   display: flex;
   flex-direction: row;
@@ -21,4 +20,8 @@
 
 .mat-mdc-form-field {
   margin-right: 4px;
+}
+
+.mat-app-background {
+  min-height: 100%;
 }

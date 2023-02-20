@@ -1,6 +1,9 @@
 <div class="list">
-  <h2>Today tasks</h2>
-  <mat-accordion *ngFor="let list of allLists">
-    <app-task-list></app-task-list>
+  <div id="head">
+    <span id="title">Today tasks</span>
+  </div>
+  <mat-accordion *ngFor="let task of todayTasks">
+    <app-task [task]="task"></app-task>
   </mat-accordion>
+  <p id="empty" *ngIf="this.todayTasks?.length == 0">No tasks for today ;-;</p>
 </div>

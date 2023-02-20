@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
-import {List} from "../task-list/task-list.component";
+import {Task} from "../task/task.component";
+import {TaskService} from "../../services/task.service";
 
-const EXAMPLE_LIST = {
-  id: 'id',
-  name: 'name',
-  userId: 'userId',
-  description: 'description',
-}
 @Component({
   selector: 'app-today-view',
   templateUrl: './today-view.component.html',
-  styleUrls: ['./today-view.component.css']
+  styleUrls: ['./today-view.component.scss']
 })
 export class TodayViewComponent {
-  allLists!: List[];
+  todayTasks?: Task[];
+
+  constructor(private taskService: TaskService) {
+  }
 
   ngOnInit() {
-    this.allLists = [
-      EXAMPLE_LIST,
-      EXAMPLE_LIST,
-      EXAMPLE_LIST
-    ]
+    this.taskService.getTodayTasks().subscribe(res => {
+      this.todayTasks = <Task[]> res;
+      console.log(res);
+    })
   }
 }

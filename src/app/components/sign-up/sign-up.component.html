@@ -1,15 +1,18 @@
 <form id='form'>
   <h2>Sign up</h2>
+  <mat-error *ngIf="this.errorMessage">
+    {{errorMessage}}
+  </mat-error>
   <mat-form-field>
     <mat-label>Username</mat-label>
-    <input matInput [formControl]="formControl">
+    <input matInput [formControl]="formControl" [(ngModel)]="form.username">
     <mat-error *ngIf="formControl.hasError('required')">
       Username is <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. joe@example.com">
+    <input type="email" matInput [formControl]="emailFormControl" [(ngModel)]="form.email" placeholder="Ex. joe@example.com">
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
     </mat-error>
@@ -19,13 +22,13 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Password</mat-label>
-    <input type="password" matInput [formControl]="formControl">
+    <input type="password" matInput [(ngModel)]="form.password" [formControl]="formControl">
     <mat-error *ngIf="formControl.hasError('required')">
       Email is <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <div class="buttons">
     <button mat-flat-button type="button" color="primary" routerLink="/sign-in">Sign in</button>
-    <button mat-flat-button color="primary">Create account</button>
+    <button mat-flat-button type="button" color="primary" (click)="onSubmit()">Create account</button>
   </div>
 </form>

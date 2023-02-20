@@ -1,0 +1,24 @@
+<div class="list">
+  <div id="head">
+    <span id="title">Files</span>
+    <button mat-mini-fab color="primary" (click)="openFilePopup()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div id="files" *ngFor="let file of files">
+    <span mat-button>{{file!.filename}}</span>
+    <a href="{{file!.url}}" mat-mini-fab color="primary">
+      <mat-icon>vertical_align_bottom</mat-icon>
+    </a>
+    <button mat-mini-fab color="warn" (click)="deleteFile(file.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <p id="empty" *ngIf="this.files?.length == 0">
+    You don't have any files :/
+    <br><br>
+    But you can add some :3
+  </p>
+</div>

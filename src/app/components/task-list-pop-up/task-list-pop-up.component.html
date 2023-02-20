@@ -1,0 +1,24 @@
+<form id='list-form'>
+  <mat-form-field>
+    <mat-label>List name</mat-label>
+    <input matInput [formControl]="formControl" [(ngModel)]="listData!.name">
+    <mat-error *ngIf="formControl.hasError('required')">
+      List name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>List description</mat-label>
+    <input matInput [(ngModel)]="listData!.description" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-flat-button mat-dialog-close
+            type="button"
+            color="primary"
+    >Cancel</button>
+    <button mat-flat-button
+            type="button"
+            color="primary"
+            (click)="saveData()"
+    >Save</button>
+  </div>
+</form>
